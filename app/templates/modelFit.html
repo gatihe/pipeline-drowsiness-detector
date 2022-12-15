@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Bootstrap demo</title>
+  </head>
+  <body>
+    <nav class="navbar bg-light">
+      <form class="container-fluid justify-content-start">
+        <a href="/"
+          ><button class="btn btn-outline-primary me-2" type="button">
+            Home
+          </button></a
+        >
+        <a href="/dataPreprocessing"
+          ><button class="btn btn-outline-primary me-2" type="button">
+            1. Pré-processamento de dados
+          </button></a
+        >
+        <a href="/dataCleaning"
+          ><button class="btn btn-outline-primary me-2" type="button">
+            2. Limpeza de dados
+          </button></a
+        >
+        <a href="/featureEngineering"
+          ><button class="btn btn-outline-primary me-2" type="button">
+            3. Extração de características
+          </button></a
+        >
+        <a href="/modelFit"
+          ><button class="btn btn-outline-primary me-2 active" type="button">
+            4. Treinamento e predição
+          </button></a
+        >
+          <button disabled class="btn btn-outline-primary me-2" type="button">
+            5. Métricas
+          </button>
+        <a href="/docs"
+          ><button class="btn btn-outline-primary me-2" type="button">
+            Documentação
+          </button>
+        </a>
+      </form>
+    </nav>
+
+
+    <div class="row" id="trainNewModel" style="margin-top:30px;">
+      <div class="col-1"></div>
+      <div class="col-5 text-justify">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">a. treinar um novo modelo</h5>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+
+            <form method="post" name="fitModel" id="fitModel">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+
+                    <label for="">Escolha um conjunto de dados:</label>
+                    <select
+                      class="form-control"
+                      name="selectedDataset"
+                      id="selectedDataset"
+                    >
+                      <option disabled selected>
+                        Escolha um conjunto de dados:
+                      </option>
+                      {% for dataset in availableDatasets %}
+                      <option value="{{ dataset }}">{{ dataset }}</option>
+                      {% endfor %}
+                    </select>
+                    <p></p>
+  
+                    <label for="customRange2" class="form-label"
+                      >Duração das entradas do conjunto de dados:</label
+                    >
+  
+                    <input
+                      type="number"
+                      id="clipsDuration"
+                      name="clipsDuration"
+                      class="form-control"
+                      step="1"
+                      min="3"
+                      max="10"
+                      value="3"
+                    />
+  
+                    <p></p>
+  
+                    <label for=""
+                      >Algoritmo utilizado para escalonamento dos dados:</label
+                    >
+                    <select
+                      class="form-control"
+                      name="usedScaleAlgorithm"
+                      id="usedScaleAlgorithm"
+                    >
+                      <option disabled selected>
+                        Escolha um algoritmo de escalonamento
+                      </option>
+                      <option value="minmax">Min-Max</option>
+                      <option value="standard">Standard</option>
+                    </select>
+
+                    <p></p>
+                    <button type="submit" form="fitModel" class="btn btn-primary">
+                      Treinar modelo
+                    </button>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    
+                    <label for=""
+                    >Adicionar entrada ao conjunto:
+                    <span style="color: gray; font-size: 10px">
+                      (opcional)
+                    </span></label
+                  >
+                  <select
+                    class="form-select"
+                    id="selectedEntry"
+                    name="selectedEntry"
+                  >
+                    <option disabled selected>Escolha uma entrada</option>
+                    {% for entry in availableEntries %}
+                    <option value="{{ entry }}">{{ entry }}</option>
+                    {% endfor %}
+                  </select>
+                  <p></p>
+
+                  <label for="customRange2" class="form-label"
+                    >Tamanho do conjunto de treino:</label
+                  >
+
+                  <input
+                    type="number"
+                    id="trainTestRatio"
+                    name="trainTestRatio"
+                    class="form-control"
+                    step="0.01"
+                    min="0"
+                    max="1"
+                    value="0.75"
+                  />
+                  <p></p>
+                  <label for=""
+                    >Escolha um algoritmo de aprendizado de máquina:
+                    <span style="color: red; font-size: 10px">
+                      (SVC -> MinMax | SGD -> Standard)
+                    </span></label
+                  >
+                  <select
+                    class="form-control"
+                    name="selectedFitAlgorithm"
+                    id="selectedFitAlgorithm"
+                  >
+                    <option value="logisticRegression">
+                      Regressão Logística
+                    </option>
+                    <option value="SVC">SVC</option>
+                    <option value="SGD">SGD</option>
+                  </select>
+
+
+                  </div>
+                </div>
+              </div>
+              <p></p>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 my-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">b. inferir uma entrada individual</h5>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+
+            <form method="post" name="predictEntry" id="predictEntry">
+              <div class="row">
+                <div class="form-group">
+                  <label for="">Escolha um modelo pré treinado:</label>
+                  <select
+                    class="form-control"
+                    name="selectedPredModel"
+                    id="selectedPredModel"
+                  >
+                    <option disabled selected>
+                      Escolha um modelo
+                    </option>
+                    {% for key, value in availableModels.items() %}
+
+                    <option value="{{ key }}">
+                      {{ key }} -  {{ value['filename'] }}
+                    </option>
+                    {% endfor %}
+
+                    </select>
+                  <p></p>
+
+                  <label for="customRange2" class="form-label"
+                    >Selecione a entrada à ser analisada:</label
+                  >
+                  <select
+                    class="form-control"
+                    name="selectedEntryPred"
+                    id="selectedEntryPred"
+                  >
+                    <option disabled selected>
+                      Escolha um conjunto de dados:
+                    </option>{% for entry in availableEntries %}
+                    <option value="{{ entry }}">{{ entry }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                  
+                  
+              <p></p>
+              <button type="submit" form="predictEntry" class="btn btn-primary">
+                Realizar predição
+              </button>
+
+              {% if results|length > 0 %}
+              <p></p>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Ver resultado
+              </button>
+              
+              <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Resultado</h5>
+                      <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="border-style:hidden;">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+
+
+
+
+
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Entrada</th>
+                            <th scope="col">Resultado</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for result in results %}
+                          <tr>
+                            <td>
+                              {{ result[0] }}
+                            </td>
+                            <td>
+                              {{ result[1] }}
+                            </td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+              {% endif %}
+
+
+              
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <hr />
+      </div>
+      <div class="col-1"></div>
+    </div>
+
+
+    <div class="row" style="" id="modelos">
+      <div class="col-1"></div>
+      <div class="col-10 text-justify my-auto">
+        <h4>Modelos disponíveis</h4>
+        <p
+          class="text-justify"
+          style="text-align: justify; padding-right: 10px"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in
+          consequat lacus. In a auctor nisl, iaculis tempor odio. Morbi
+          consequat vel velit eget ultrices. Suspendisse arcu quam, egestas vel
+          iaculis id, sollicitudin eget ante. Nunc ut lorem ante. Sed posuere
+          nec massa a ornare. Aliquam erat volutpat. Nunc pulvinar leo sit amet
+          nisi commodo, a varius orci egestas. Pellentesque facilisis sagittis
+          nisi. Nulla porttitor, sapien nec gravida bibendum, est risus bibendum
+          tortor, et lobortis sem nisi eu lacus. Etiam bibendum tincidunt eros
+          volutpat dignissim. Nam tempor ante et felis auctor varius. Duis
+          consectetur odio a ultricies tincidunt. Donec viverra ante a justo
+          convallis, a maximus elit interdum. Phasellus in mollis nibh.
+          Suspendisse vitae ligula nisi. Nam euismod sapien vitae bibendum
+          porttitor. Mauris posuere est urna, non imperdiet est gravida at.
+          Nulla ultrices cursus sem. Fusce gravida eros est, ut laoreet turpis
+          viverra a. Nam sit amet feugiat urna.
+        </p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Modelo</th>
+              <th scope="col">Dataset utilizado</th>
+              <th scope="col">Duração das entradas (s)</th>
+              <th scope="col">Algoritmo de escalonamento</th>
+              <th scope="col">Algoritmo de treinamento</th>
+              <th scope="col">Tamanho conj. treino</th>
+              <th scope="col">Métricas</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for key, value in availableModels.items() %}
+            <tr>
+              <th scope="row">{{ key }}</th>
+              <td>
+                {{ value['filename'] }}
+                <a
+                  style="font-size: 10px"
+                  href="{{ url_for('downloadModel', id=key) }}"
+                  >Exportar</a
+                >
+              </td>
+              <td>
+                {{ value['dataset'] }}
+                <a
+                  style="font-size: 10px"
+                  href="{{ url_for('downloadFitDataset', id=key) }}"
+                  >Exportar</a
+                >
+              </td>
+              <td>{{ value['videosDuration'] }}</td>
+              <td>{{ value['scalingAlgorithm'] }}</td>
+              <td>{{ value['fitAlgorithm'] }}</td>
+              <td>{{ value['fitDatasetSize'] }}</td>
+              <td>
+                <a
+                  href="{{ url_for('prediction', modelName=value['filename'], id=key) }}"
+                  >Visualizar</a
+                >
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        
+      </div>
+      <div class="col-1"></div>
+    </div>
+
+
+    
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

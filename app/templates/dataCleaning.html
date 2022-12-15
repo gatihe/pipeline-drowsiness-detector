@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <title>Bootstrap demo</title>
+  </head>
+  <body>
+    <nav class="navbar bg-light">
+      <form class="container-fluid justify-content-start">
+        <a href="/"
+          ><button class="btn btn-outline-primary me-2" type="button">
+            Home
+          </button></a
+        >
+        <a href="/dataPreprocessing"
+          ><button class="btn btn-outline-primary me-2" type="button">
+            1. Pré-processamento de dados
+          </button></a
+        >
+        <a href="/dataCleaning"
+          ><button class="btn btn-outline-primary me-2 active" type="button">
+            2. Limpeza de dados
+          </button></a
+        >
+        <a href="/featureEngineering"
+          ><button class="btn btn-outline-primary me-2" type="button">
+            3. Extração de características
+          </button></a
+        >
+        <a href="/modelFit"
+          ><button class="btn btn-outline-primary me-2" type="button">
+            4. Treinamento e predição
+          </button></a
+        >
+        <button disabled class="btn btn-outline-primary me-2" type="button">
+          5. Métricas
+        </button>
+        <a href="/docs"
+          ><button class="btn btn-outline-primary me-2" type="button">
+            Documentação
+          </button>
+        </a>
+      </form>
+    </nav>
+
+    <div class="row" style="height: 700px">
+      <div class="col-1"></div>
+      <div class="col-5 text-justify my-auto">
+        <h4>Limpeza</h4>
+        <p
+          class="text-justify"
+          style="text-align: justify; padding-right: 10px"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in
+          consequat lacus. In a auctor nisl, iaculis tempor odio. Morbi
+          consequat vel velit eget ultrices. Suspendisse arcu quam, egestas vel
+          iaculis id, sollicitudin eget ante. Nunc ut lorem ante. Sed posuere
+          nec massa a ornare. Aliquam erat volutpat. Nunc pulvinar leo sit amet
+          nisi commodo, a varius orci egestas. Pellentesque facilisis sagittis
+          nisi. Nulla porttitor, sapien nec gravida bibendum, est risus bibendum
+          tortor, et lobortis sem nisi eu lacus. Etiam bibendum tincidunt eros
+          volutpat dignissim. Nam tempor ante et felis auctor varius. Duis
+          consectetur odio a ultricies tincidunt. Donec viverra ante a justo
+          convallis, a maximus elit interdum. Phasellus in mollis nibh.
+          Suspendisse vitae ligula nisi. Nam euismod sapien vitae bibendum
+          porttitor. Mauris posuere est urna, non imperdiet est gravida at.
+          Nulla ultrices cursus sem. Fusce gravida eros est, ut laoreet turpis
+          viverra a. Nam sit amet feugiat urna.
+        </p>
+      </div>
+
+      <div class="col-5 text-justify my-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">a. obter frames</h5>
+            <p class="card-text">
+              Selecione um arquivo de vídeo para obter frames de recortes do
+              vídeo.
+            </p>
+            <form id="splitFrames" name="splitFrames" method="post">
+              <label>Arquivo de vídeo:</label>
+              <select
+                id="selectedVideo"
+                name="selectedVideo"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected>Escolha um vídeo</option>
+                {% for video in videosList %} {% if 'mp4' in video %}
+                <option value="{{ video }}">{{ video }}</option>
+                {% endif %} {% endfor %}
+              </select>
+              <p></p>
+              <label>Tempo em segundos:</label>
+              <input
+                type="number"
+                id="videoTimeInSeconds"
+                name="videoTimeInSeconds"
+                class="form-control"
+                step="1"
+                min="3"
+                max="90"
+                value="3"
+              />
+              <p></p>
+              <button form="splitFrames" type="submit" class="btn btn-primary">
+                Obter frames
+              </button>
+            </form>
+          </div>
+        </div>
+        <p></p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">b. corrigir orientação</h5>
+            <p class="card-text">
+              Escolha um diretório de frames para verificação e correção da
+              orientação.
+            </p>
+            <form
+              id="correctOrientation"
+              name="correctOrientation"
+              method="post"
+            >
+              <label>Diretório de frames:</label>
+              <select
+                id="selectedFrameDir"
+                name="selectedFrameDir"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected>Escolha um diretório de frames</option>
+                {% for frameDir in frameDirList %}
+                <option value="{{ frameDir }}">{{ frameDir }}</option>
+                {% endfor %}
+              </select>
+              <p></p>
+              <button
+                form="correctOrientation"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Corrigir orientação
+              </button>
+            </form>
+          </div>
+        </div>
+        <p></p>
+        <p style="text-align: right">
+          <a href="{{ url_for("featureEngineering") }}"><button class="btn btn-primary"
+          >
+            Avançar
+          </button></a>
+        </p>
+      </div>
+
+      <div class="col-1"></div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
