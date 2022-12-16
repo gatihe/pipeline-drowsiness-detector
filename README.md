@@ -12,7 +12,7 @@
 
 ## Sobre
 
-[![Product Name Screen Shot][/imgs/diagram.png]](https://example.com)
+[![Product Name Screen Shot]](/imgs/diagram.png)
 
 Repositório para apresentação do pipeline desenvolvido por Guilherme Atihe de Oliveira, em projeto de conclusão do curso de pós-graduação em Inteligência Artificial e Aprendizado de Máquina da PUC-MINAS.
 
