@@ -12,7 +12,7 @@
 
 ## Sobre
 
-<img style="background-color:white;" src="/imgs/diagram.png">
+<img src="/imgs/diagram.png">
 
 Repositório para apresentação do pipeline desenvolvido por Guilherme Atihe de Oliveira, em projeto de conclusão do curso de pós-graduação em Inteligência Artificial e Aprendizado de Máquina da PUC-MINAS.
 
@@ -27,7 +27,7 @@ Siga as instruções a seguir para conseguir executar em sua máquina.
 - Docker
 - Python 3.x
 
-### Installation
+### Instalação
 
 1. Baixe o repositório.
 2. No diretório raiz do pipeline-drowsiness-detector execute os seguintes comandos:
@@ -40,7 +40,7 @@ Siga as instruções a seguir para conseguir executar em sua máquina.
    ```
 4. Sempre que precisar fazer alguma alteração, interrompa a sessão docker e re-execute o passo 3.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 
@@ -72,13 +72,13 @@ Algumas imagens referentes a utilização do pipeline:
 
 <img style="background-color:white;" src="/imgs/12.png">
 
-<img style="background-color:white;" src="/imgs/13.png">
-
 <img style="background-color:white;" src="/imgs/14.png">
+
+<img style="background-color:white;" src="/imgs/13.png">
 
 <img style="background-color:white;" src="/imgs/15.png">
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
 <!-- LICENSE -->
 
@@ -86,6 +86,4 @@ Algumas imagens referentes a utilização do pipeline:
 
 Distribuído sob a Licença MIT. Veja `LICENSE.txt` para mais informações.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTACT -->
+<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
