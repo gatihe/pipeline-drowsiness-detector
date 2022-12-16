@@ -9,7 +9,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <title>Bootstrap demo</title>
+    <title>pipeline-drowsiness-detector</title>
   </head>
   <body>
     <nav class="navbar bg-light">
@@ -51,30 +51,7 @@
     </nav>
     <div class="row" style="height: 700px">
       <div class="col-1"></div>
-      <div class="col-5 text-justify my-auto">
-        <h4>Geração de predição</h4>
-        <p
-          class="text-justify"
-          style="text-align: justify; padding-right: 10px"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in
-          consequat lacus. In a auctor nisl, iaculis tempor odio. Morbi
-          consequat vel velit eget ultrices. Suspendisse arcu quam, egestas vel
-          iaculis id, sollicitudin eget ante. Nunc ut lorem ante. Sed posuere
-          nec massa a ornare. Aliquam erat volutpat. Nunc pulvinar leo sit amet
-          nisi commodo, a varius orci egestas. Pellentesque facilisis sagittis
-          nisi. Nulla porttitor, sapien nec gravida bibendum, est risus bibendum
-          tortor, et lobortis sem nisi eu lacus. Etiam bibendum tincidunt eros
-          volutpat dignissim. Nam tempor ante et felis auctor varius. Duis
-          consectetur odio a ultricies tincidunt. Donec viverra ante a justo
-          convallis, a maximus elit interdum. Phasellus in mollis nibh.
-          Suspendisse vitae ligula nisi. Nam euismod sapien vitae bibendum
-          porttitor. Mauris posuere est urna, non imperdiet est gravida at.
-          Nulla ultrices cursus sem. Fusce gravida eros est, ut laoreet turpis
-          viverra a. Nam sit amet feugiat urna.
-        </p>
-      </div>
-      <div class="col-5 my-auto">
+      <div class="col-10 my-auto">
         <h5>{{ modelName }}</h5>
         <table class="table">
           <thead>
@@ -140,12 +117,6 @@
             {% else %} {% endif %} {% endfor %}
           </tbody>
         </table>
-
-        <form>
-          <div class="row" style="margin-top: 10px">
-            <button type="button" class="btn btn-primary">Exportar</button>
-          </div>
-        </form>
       </div>
       <div class="col-1"></div>
     </div>

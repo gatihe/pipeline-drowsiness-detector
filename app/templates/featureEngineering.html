@@ -9,7 +9,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <title>Bootstrap demo</title>
+    <title>pipeline-drowsiness-detector</title>
   </head>
   <body>
     <nav class="navbar bg-light">
@@ -58,21 +58,15 @@
           class="text-justify"
           style="text-align: justify; padding-right: 10px"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in
-          consequat lacus. In a auctor nisl, iaculis tempor odio. Morbi
-          consequat vel velit eget ultrices. Suspendisse arcu quam, egestas vel
-          iaculis id, sollicitudin eget ante. Nunc ut lorem ante. Sed posuere
-          nec massa a ornare. Aliquam erat volutpat. Nunc pulvinar leo sit amet
-          nisi commodo, a varius orci egestas. Pellentesque facilisis sagittis
-          nisi. Nulla porttitor, sapien nec gravida bibendum, est risus bibendum
-          tortor, et lobortis sem nisi eu lacus. Etiam bibendum tincidunt eros
-          volutpat dignissim. Nam tempor ante et felis auctor varius. Duis
-          consectetur odio a ultricies tincidunt. Donec viverra ante a justo
-          convallis, a maximus elit interdum. Phasellus in mollis nibh.
-          Suspendisse vitae ligula nisi. Nam euismod sapien vitae bibendum
-          porttitor. Mauris posuere est urna, non imperdiet est gravida at.
-          Nulla ultrices cursus sem. Fusce gravida eros est, ut laoreet turpis
-          viverra a. Nam sit amet feugiat urna.
+        Inicia-se a extração dos marcos
+        faciais. Na etapa seguinte do processamento, utilizando a tabela
+        resultante da obtenção dos marcos faciais, calcula-se os EAR e MAR
+        médio referente a cada segundo do vídeo. É possível, também, dividir o
+        vídeo processado em subconjuntos com a duração desejada. Essa
+        funcionalidade permite a adequação dos dados obtidos aos modelos já
+        presentes no sistema que possuem 3 e 5 segundos de duração. Por fim,
+        os dados são normalizados de acordo com o algoritmo (StandardScaler ou
+        MinMax) escolhido.
         </p>
       </div>
 
@@ -100,7 +94,7 @@
               </select>
               <p></p>
               <button type="submit" form="getlandmarks" class="btn btn-primary">
-                Go somewhere
+                Extrair
               </button>
             </form>
           </div>
@@ -110,8 +104,7 @@
           <div class="card-body">
             <h5 class="card-title">c. dividir vídeo</h5>
             <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
+              Dividir os dados obtidos em múltiplas entradas.
             </p>
             <form method="post" id="splitVideo" name="splitVideo">
               <label>Quantidade de segundos das amostras:</label>
@@ -144,7 +137,7 @@
               </select>
               <p></p>
               <button type="submit" form="splitVideo" class="btn btn-primary">
-                Go somewhere
+                Dividir
               </button>
             </form>
           </div>
@@ -156,8 +149,7 @@
           <div class="card-body">
             <h5 class="card-title">b. extrair features</h5>
             <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
+              Extrair características e compor uma tabela de EAR e MAR médio por segundo.
             </p>
             <form id="getEarMar" name="getEarMar" method="post">
               <label>Conjunto de marcos faciais:</label>
@@ -180,7 +172,7 @@
               <p></p>
 
               <button type="submit" form="getEarMar" class="btn btn-primary">
-                Go somewhere
+                Extrair
               </button>
             </form>
           </div>
@@ -190,8 +182,7 @@
           <div class="card-body">
             <h5 class="card-title">d. normalizar dados</h5>
             <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
+              Normalizar os valores de EAR e MAR das entradas.
             </p>
             <form id="normalizeData" name="normalizeData" method="post">
               <label>Algoritmo:</label>
@@ -204,8 +195,10 @@
                 <option disabled selected>
                   Escolha um algoritmo de normalização:
                 </option>
+                <option value="nenhum">Nenhum algoritmo</option>
                 <option value="standard">Standard</option>
                 <option value="minmax">MinMax</option>
+
               </select>
               <p></p>
               <label>Conjunto de dados:</label>
@@ -228,7 +221,7 @@
                 form="normalizeData"
                 class="btn btn-primary"
               >
-                Go somewhere
+                Enviar
               </button>
             </form>
           </div>

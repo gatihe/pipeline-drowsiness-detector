@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <title>Bootstrap demo</title>
+    <title>pipeline-drowsiness-detector</title>
   </head>
   <body>
     <nav class="navbar bg-light">
@@ -53,7 +53,27 @@
         </a>
       </form>
     </nav>
+    <div class="row" style="" id="textoinicial">
+      <div class="col-1"></div>
+      <div class="col-10 text-justify my-auto">
 
+        <h4 style="text-align: center">Extração de características</h4>
+
+        Ao completar a última etapa do processamento,
+        apresentam-se duas opções: utilizar os novos dados para complementar
+        algum conjunto pré-existente e treinar um novo modelo, ou solicitar a
+        classificação do trecho de vídeo processado com algum modelo que já
+        consta no sistema. Caso um novo modelo tenha sido criado, é possível
+        utilizá-lo para classificar novas entradas ou visualizar o seu
+        desempenho com o conjunto de treinamento. Se o usuário optar por
+        classificar a nova entrada gerada, um botão para apresentar o
+        resultado da classificação será disponibilizado após a conclusão da
+        tarefa. 
+
+
+      </div>
+      <div class="col-1"></div>
+    </div>
 
     <div class="row" id="trainNewModel" style="margin-top:30px;">
       <div class="col-1"></div>
@@ -62,8 +82,7 @@
           <div class="card-body">
             <h5 class="card-title">a. treinar um novo modelo</h5>
             <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
+              Preencha as informações a seguir para treinar um novo modelo.
             </p>
 
             <form method="post" name="fitModel" id="fitModel">
@@ -191,10 +210,9 @@
       <div class="col-5 my-auto">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">b. inferir uma entrada individual</h5>
+            <h5 class="card-title">b. classificar uma entrada individual</h5>
             <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
+              Escolha uma entrada de dados para classificá-la
             </p>
 
             <form method="post" name="predictEntry" id="predictEntry">
@@ -324,21 +342,9 @@
           class="text-justify"
           style="text-align: justify; padding-right: 10px"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in
-          consequat lacus. In a auctor nisl, iaculis tempor odio. Morbi
-          consequat vel velit eget ultrices. Suspendisse arcu quam, egestas vel
-          iaculis id, sollicitudin eget ante. Nunc ut lorem ante. Sed posuere
-          nec massa a ornare. Aliquam erat volutpat. Nunc pulvinar leo sit amet
-          nisi commodo, a varius orci egestas. Pellentesque facilisis sagittis
-          nisi. Nulla porttitor, sapien nec gravida bibendum, est risus bibendum
-          tortor, et lobortis sem nisi eu lacus. Etiam bibendum tincidunt eros
-          volutpat dignissim. Nam tempor ante et felis auctor varius. Duis
-          consectetur odio a ultricies tincidunt. Donec viverra ante a justo
-          convallis, a maximus elit interdum. Phasellus in mollis nibh.
-          Suspendisse vitae ligula nisi. Nam euismod sapien vitae bibendum
-          porttitor. Mauris posuere est urna, non imperdiet est gravida at.
-          Nulla ultrices cursus sem. Fusce gravida eros est, ut laoreet turpis
-          viverra a. Nam sit amet feugiat urna.
+          
+       
+
         </p>
         <table class="table">
           <thead>

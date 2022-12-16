@@ -42,6 +42,8 @@ app = FastAPI(title='Drowsiness Detection Pipeline API', description='isto é um
               swagger_ui_parameters={"defaultModelsExpandDepth": -1})
 app.add_middleware(SessionMiddleware, secret_key="drowsiness-detector-key")
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 templates = Jinja2Templates(directory="templates")
 
@@ -69,7 +71,7 @@ async def dataCleaning(request: Request, videoTimeInSeconds: Optional[int] = For
         frames_dir = 'src/2/videoFrames/{}/'.format(selectedFrameDir)
         rotateImages('src/2/videoFrames/{}'.format(selectedFrameDir), getNeededRotations(selectedFrameDir))      
     else:
-    frameDirList = os.listdir('src/2/videoFrames/')
+        frameDirList = os.listdir('src/2/videoFrames/')
     return templates.TemplateResponse('dataCleaning.html', {'request': request, 'videosList':videosList,'frameDirList':frameDirList})
 
 @app.get("/featureEngineering", include_in_schema=False)

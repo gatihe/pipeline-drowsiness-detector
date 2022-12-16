@@ -228,7 +228,10 @@ def loadModel(name):
 
 
 def scaleDataframe(algorithm, dataframe):
-
+    
+    if algorithm =='nenhum':
+        return dataframe
+    
     if algorithm == 'minMax':
         scaledDf = dataframe.T.iloc[1:,:]
         scaledDf = scaledDf.reset_index(drop=True)
