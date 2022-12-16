@@ -12,9 +12,7 @@
 
 ## Sobre
 
-[![Product Name Screen Shot]](./imgs/diagram.png)
-
-<img src="/imgs/diagram.png" alt="Alt text" title="Optional title">
+<img style="background-color:white;" src="/imgs/diagram.png">
 
 Repositório para apresentação do pipeline desenvolvido por Guilherme Atihe de Oliveira, em projeto de conclusão do curso de pós-graduação em Inteligência Artificial e Aprendizado de Máquina da PUC-MINAS.
 
@@ -50,35 +48,35 @@ Siga as instruções a seguir para conseguir executar em sua máquina.
 
 Algumas imagens referentes a utilização do pipeline:
 
-[![Product Name Screen Shot][./imgs/1.png]]()
+<img style="background-color:white;" src="/imgs/1.png">
 
-[![Product Name Screen Shot][./imgs/2.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/2.png">
 
-[![Product Name Screen Shot][./imgs/3.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/3.png">
 
-[![Product Name Screen Shot][./imgs/4.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/4.png">
 
-[![Product Name Screen Shot][./imgs/5.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/5.png">
 
-[![Product Name Screen Shot][./imgs/6.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/6.png">
 
-[![Product Name Screen Shot][./imgs/7.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/7.png">
 
-[![Product Name Screen Shot][./imgs/8.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/8.png">
 
-[![Product Name Screen Shot][./imgs/9.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/9.png">
 
-[![Product Name Screen Shot][./imgs/10.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/10.png">
 
-[![Product Name Screen Shot][./imgs/11.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/11.png">
 
-[![Product Name Screen Shot][./imgs/12.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/12.png">
 
-[![Product Name Screen Shot][./imgs/13.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/13.png">
 
-[![Product Name Screen Shot][./imgs/14.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/14.png">
 
-[![Product Name Screen Shot][./imgs/15.png]](https://example.com)
+<img style="background-color:white;" src="/imgs/15.png">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
